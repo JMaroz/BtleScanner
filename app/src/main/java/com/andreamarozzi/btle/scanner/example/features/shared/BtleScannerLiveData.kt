@@ -1,4 +1,4 @@
-package com.andreamarozzi.btle.scanner.features.shared
+package com.andreamarozzi.btle.scanner.example.features.shared
 
 import android.arch.lifecycle.LiveData
 import android.content.Context
@@ -10,6 +10,7 @@ import com.andreamarozzi.btle.scanner.interfaces.Provider.ProviderCallback
 import com.andreamarozzi.btle.scanner.interfaces.ScanService
 import com.andreamarozzi.btle.scanner.interfaces.ScanServiceCallback
 import com.andreamarozzi.btle.scanner.interfaces.iBeacon
+import com.andreamarozzi.btle.scanner.model.Beacon
 import com.andreamarozzi.btle.scanner.model.ScanError
 
 class BtleScannerLiveData(val context: Context) : LiveData<iBeacon>() {
@@ -18,7 +19,14 @@ class BtleScannerLiveData(val context: Context) : LiveData<iBeacon>() {
         const val TAG = "BtleScannerLiveData"
     }
 
+    /**
+     * The actual scanner for bt
+     */
     private var scanService: ScanService
+
+    /**
+     * The callback when a new beacon is found
+     */
     private val scanServiceCallback = object : ScanServiceCallback {
         override fun onBeaconFound(beacon: iBeacon) {
             Log.d(TAG, "ScanServiceCallback.onBeaconFound $beacon")
@@ -38,13 +46,41 @@ class BtleScannerLiveData(val context: Context) : LiveData<iBeacon>() {
 
     override fun onActive() {
         super.onActive()
-        scanService.start()
+        //startScan()
     }
 
     override fun onInactive() {
         super.onInactive()
+        stopScan()
+    }
+
+    fun startScan() {
+        scanService.start()
+    }
+
+    fun stopScan() {
         scanService.stop()
     }
+
+    fun setProvider(provider: Provider<iBeacon>) {
+        scanService.stop()
+        scanService.provider = provider
+        scanService.start()
+    }
+
+    fun addBeaconToScan(beacon: Beacon) {
+        scanService.stop()
+        scanService.addBeaconToScan(beacon)
+        scanService.start()
+    }
+
+    fun removeBeaconToScan(beacon: Beacon) {
+        scanService.stop()
+        scanService.removeBeaconToScan(beacon)
+        scanService.start()
+    }
+
+    fun canScan(): List<ScanError> = scanService.canScan()
 
     class PassAllProvider : Provider<iBeacon> {
 

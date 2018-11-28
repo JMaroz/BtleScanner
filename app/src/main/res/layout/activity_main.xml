@@ -3,13 +3,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.MainActivity">
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/bt_btlescanner"
-        android:layout_width="wrap_content"
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:drawableEnd="@drawable/ic_arrow_down"
+        android:text="@string/scan_controller"
+        android:textSize="22sp" />
+
+    <fragment
+        android:id="@+id/fragment_scan_controller"
+        class="com.andreamarozzi.btle.scanner.example.features.ScanControllerFragment"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:drawableEnd="@drawable/ic_arrow_down"
+        android:text="@string/scan_errors"
+        android:textSize="22sp" />
 
+    <fragment
+        android:id="@+id/fragment_scan_erros"
+        class="com.andreamarozzi.btle.scanner.example.features.ScanErrorFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:drawableEnd="@drawable/ic_arrow_down"
+        android:text="@string/scan_result"
+        android:textSize="22sp" />
+
+    <fragment
+        android:id="@+id/fragment_scan_result"
+        class="com.andreamarozzi.btle.scanner.example.features.ScanResultFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

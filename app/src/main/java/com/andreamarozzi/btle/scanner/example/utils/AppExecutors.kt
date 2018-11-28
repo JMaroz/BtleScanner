@@ -1,4 +1,4 @@
-package com.andreamarozzi.btle.scanner.utils
+package com.andreamarozzi.btle.scanner.example.utils
 
 import android.os.Handler
 import android.os.Looper

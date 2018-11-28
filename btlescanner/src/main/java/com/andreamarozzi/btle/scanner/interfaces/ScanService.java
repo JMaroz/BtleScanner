@@ -34,6 +34,7 @@ public interface ScanService {
      * Check if the service can permof scan for beacons
      * @return the this of errors like {@link ScanError#NO_BLUETOOTH_PERMISSION} or empty list if there are no erros
      */
+    @NonNull
     List<ScanError> canScan();
 
     /**

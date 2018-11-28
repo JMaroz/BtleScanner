@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Btle Scanner</string>
+    <string name="scan_controller">Scan controller</string>
+    <string name="scan_errors">Errori</string>
+    <string name="scan_result">Risultati</string>
+    <string name="error">Errore</string>
+
+    <string name="no_bt_permission">Permesso bluetooth non concesso, controlla il tuo manifest e assicurati di aver aggiunto il permesso per il bluetooth</string>
+    <string name="no_btle">Il dispositivo non supporta il Bluetooth Low Energy</string>
+    <string name="bt_off">Il bluetooth è spento</string>
+    <string name="gps_off">Il gps è spento</string>
+    <string name="no_gps_permission">Permesso per la posizione non concesso</string>
+    <string name="unknow_bt_error">Errore bluetooth sconosciuto</string>
+    <string name="bt_provider_error">Errore del bluetooth provider</string>
+    <string name="change_your_manifest">Devi modificare il manifest dell\'app per risolvere questo problema</string>
+    <string name="nothing_todo">Non si può fare nulla per risolvere questo problema</string>
+    <string name="no_error">Nessun errore</string>
+    <string name="check_scan_error">Controlla errori scansione</string>
+    <string name="start_scan">Avvia scansione</string>
+    <string name="stop_scan">Ferma scansione</string>
 </resources>

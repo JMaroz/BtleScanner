@@ -75,6 +75,7 @@ public final class DefaultScanService implements ScanService, Provider.ProviderC
 
     @RequiresPermission(Manifest.permission.BLUETOOTH_ADMIN)
     @Override
+    @NonNull
     public List<ScanError> canScan() {
         List<ScanError> errors = new ArrayList<>();
         if (!bluetoothFactory.canAttachBluetoothAdapter())
