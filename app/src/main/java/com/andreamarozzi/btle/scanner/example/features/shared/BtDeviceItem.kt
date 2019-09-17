@@ -1,7 +1,7 @@
 package com.andreamarozzi.btle.scanner.example.features.shared
 
 import android.view.View
-import com.andreamarozzi.btle.scanner.interfaces.iBeacon
+import com.marozzi.btle.scanner.interfaces.iBeacon
 import com.mikepenz.fastadapter.items.AbstractItem
 import com.andreamarozzi.btle.scanner.example.R
 import com.mikepenz.fastadapter.FastAdapter

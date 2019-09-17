@@ -2,20 +2,17 @@ package com.andreamarozzi.btle.scanner.example.features
 
 import android.Manifest
 import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
 import android.bluetooth.BluetoothAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import com.andreamarozzi.btle.scanner.example.R
 import com.andreamarozzi.btle.scanner.example.features.shared.BaseScanFragment
-import com.andreamarozzi.btle.scanner.model.ScanError
+import com.marozzi.btle.scanner.model.ScanError
 import kotlinx.android.synthetic.main.fragment_scan_error.view.*
 import kotlinx.android.synthetic.main.fragment_scan_error.*
 import kotlinx.android.synthetic.main.view_scan_error.view.*

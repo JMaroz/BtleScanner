@@ -1,4 +1,4 @@
-package com.andreamarozzi.btle.scanner.model;
+package com.marozzi.btle.scanner.model;
 
 import android.annotation.TargetApi;
 import android.bluetooth.BluetoothDevice;
@@ -9,14 +9,16 @@ import android.os.ParcelUuid;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
-import com.andreamarozzi.btle.scanner.interfaces.iBeacon;
-import com.andreamarozzi.btle.scanner.utils.ConversionUtils;
+import com.marozzi.btle.scanner.interfaces.iBeacon;
+import com.marozzi.btle.scanner.utils.ConversionUtils;
 
 import java.security.InvalidParameterException;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
+ * Default implemention of a beacon
  * Created by amarozzi on 14/02/2018.
  */
 
@@ -45,6 +47,16 @@ public class Beacon implements iBeacon, Parcelable {
         this.power = builder.power;
         this.device = builder.device;
         this.services = builder.services;
+    }
+
+    protected Beacon(Parcel in) {
+        this.uuid = (UUID) in.readSerializable();
+        this.major = in.readInt();
+        this.minor = in.readInt();
+        this.rssi = in.readInt();
+        this.power = in.readInt();
+        this.device = in.readParcelable(BluetoothDevice.class.getClassLoader());
+        this.services = in.createTypedArrayList(ParcelUuid.CREATOR);
     }
 
     @NonNull
@@ -94,9 +106,9 @@ public class Beacon implements iBeacon, Parcelable {
         if (minor != beacon.minor) return false;
         if (rssi != beacon.rssi) return false;
         if (power != beacon.power) return false;
-        if (uuid != null ? !uuid.equals(beacon.uuid) : beacon.uuid != null) return false;
-        if (device != null ? !device.equals(beacon.device) : beacon.device != null) return false;
-        return services != null ? services.equals(beacon.services) : beacon.services == null;
+        if (!Objects.equals(uuid, beacon.uuid)) return false;
+        if (!Objects.equals(device, beacon.device)) return false;
+        return Objects.equals(services, beacon.services);
     }
 
     @Override
@@ -331,16 +343,6 @@ public class Beacon implements iBeacon, Parcelable {
         dest.writeInt(this.power);
         dest.writeParcelable(this.device, flags);
         dest.writeTypedList(this.services);
-    }
-
-    protected Beacon(Parcel in) {
-        this.uuid = (UUID) in.readSerializable();
-        this.major = in.readInt();
-        this.minor = in.readInt();
-        this.rssi = in.readInt();
-        this.power = in.readInt();
-        this.device = in.readParcelable(BluetoothDevice.class.getClassLoader());
-        this.services = in.createTypedArrayList(ParcelUuid.CREATOR);
     }
 
     public static final Creator<Beacon> CREATOR = new Creator<Beacon>() {

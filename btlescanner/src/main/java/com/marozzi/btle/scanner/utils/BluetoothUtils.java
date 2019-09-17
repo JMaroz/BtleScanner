@@ -1,17 +1,19 @@
-package com.andreamarozzi.btle.scanner.utils;
+package com.marozzi.btle.scanner.utils;
 
+import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.ParcelUuid;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresPermission;
 import android.util.SparseArray;
 
 import com.neovisionaries.bluetooth.ble.advertising.ADPayloadParser;
 import com.neovisionaries.bluetooth.ble.advertising.ADStructure;
 import com.neovisionaries.bluetooth.ble.advertising.IBeacon;
-import com.andreamarozzi.btle.scanner.model.Beacon;
+import com.marozzi.btle.scanner.model.Beacon;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -51,7 +53,7 @@ public final class BluetoothUtils {
      * @return True if the device has BLE.
      */
     public static boolean hasBluetoothLE(final Context context) {
-        return (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE));
+        return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE);
     }
 
     /**
@@ -59,6 +61,7 @@ public final class BluetoothUtils {
      *
      * @return True if bloetuuth is turned on.
      */
+    @RequiresPermission(Manifest.permission.BLUETOOTH)
     public static boolean isBluetoothOn() {
         return BluetoothAdapter.getDefaultAdapter() != null && BluetoothAdapter.getDefaultAdapter().isEnabled();
     }

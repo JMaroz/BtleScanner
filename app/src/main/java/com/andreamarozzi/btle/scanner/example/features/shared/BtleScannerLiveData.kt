@@ -3,17 +3,17 @@ package com.andreamarozzi.btle.scanner.example.features.shared
 import android.arch.lifecycle.LiveData
 import android.content.Context
 import android.util.Log
-import com.andreamarozzi.btle.scanner.DefaultBluetoothFactory
-import com.andreamarozzi.btle.scanner.DefaultScanService
-import com.andreamarozzi.btle.scanner.interfaces.Provider
-import com.andreamarozzi.btle.scanner.interfaces.Provider.ProviderCallback
-import com.andreamarozzi.btle.scanner.interfaces.ScanService
-import com.andreamarozzi.btle.scanner.interfaces.ScanServiceCallback
-import com.andreamarozzi.btle.scanner.interfaces.iBeacon
-import com.andreamarozzi.btle.scanner.model.Beacon
-import com.andreamarozzi.btle.scanner.model.ScanError
+import com.marozzi.btle.scanner.DefaultBluetoothFactory
+import com.marozzi.btle.scanner.DefaultScanService
+import com.marozzi.btle.scanner.interfaces.Provider
+import com.marozzi.btle.scanner.interfaces.Provider.ProviderCallback
+import com.marozzi.btle.scanner.interfaces.ScanService
+import com.marozzi.btle.scanner.interfaces.ScanServiceCallback
+import com.marozzi.btle.scanner.interfaces.iBeacon
+import com.marozzi.btle.scanner.model.Beacon
+import com.marozzi.btle.scanner.model.ScanError
 
-class BtleScannerLiveData(val context: Context) : LiveData<iBeacon>() {
+class BtleScannerLiveData(context: Context) : LiveData<iBeacon>() {
 
     companion object {
         const val TAG = "BtleScannerLiveData"

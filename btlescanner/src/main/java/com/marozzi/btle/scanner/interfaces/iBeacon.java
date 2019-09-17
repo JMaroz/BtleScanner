@@ -1,4 +1,4 @@
-package com.andreamarozzi.btle.scanner.interfaces;
+package com.marozzi.btle.scanner.interfaces;
 
 import android.bluetooth.BluetoothDevice;
 import android.os.ParcelUuid;

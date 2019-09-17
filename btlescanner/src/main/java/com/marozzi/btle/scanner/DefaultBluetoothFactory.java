@@ -1,11 +1,11 @@
-package com.andreamarozzi.btle.scanner;
+package com.marozzi.btle.scanner;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.os.Build;
 import android.support.annotation.Nullable;
 
-import com.andreamarozzi.btle.scanner.interfaces.BluetoothFactory;
+import com.marozzi.btle.scanner.interfaces.BluetoothFactory;
 
 /**
  * Created by eliaslecomte on 12/12/2016.

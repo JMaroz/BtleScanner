@@ -1,8 +1,6 @@
 package com.andreamarozzi.btle.scanner.example.features
 
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +10,7 @@ import kotlinx.android.synthetic.main.fragment_scan_controller.view.*
 
 class ScanControllerFragment : BaseScanFragment() {
 
-    //pulsanti per star scan, stop scan, check if can scan, clear scan list
+    //button for star scan, stop scan, check if can scan, clear scan list
 
     private var scanning = false
 

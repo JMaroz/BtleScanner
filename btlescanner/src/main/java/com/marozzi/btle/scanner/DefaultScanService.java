@@ -1,4 +1,4 @@
-package com.andreamarozzi.btle.scanner;
+package com.marozzi.btle.scanner;
 
 import android.Manifest;
 import android.annotation.TargetApi;
@@ -16,17 +16,17 @@ import android.os.ParcelUuid;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresPermission;
 
-import com.andreamarozzi.btle.scanner.interfaces.BluetoothFactory;
-import com.andreamarozzi.btle.scanner.interfaces.Provider;
-import com.andreamarozzi.btle.scanner.interfaces.ScanService;
-import com.andreamarozzi.btle.scanner.interfaces.ScanServiceCallback;
-import com.andreamarozzi.btle.scanner.interfaces.iBeacon;
-import com.andreamarozzi.btle.scanner.model.Beacon;
-import com.andreamarozzi.btle.scanner.model.ScanError;
-import com.andreamarozzi.btle.scanner.model.ScanState;
-import com.andreamarozzi.btle.scanner.utils.BluetoothUtils;
-import com.andreamarozzi.btle.scanner.utils.LocationUtils;
-import com.andreamarozzi.btle.scanner.utils.PermissionUtils;
+import com.marozzi.btle.scanner.interfaces.BluetoothFactory;
+import com.marozzi.btle.scanner.interfaces.Provider;
+import com.marozzi.btle.scanner.interfaces.ScanService;
+import com.marozzi.btle.scanner.interfaces.ScanServiceCallback;
+import com.marozzi.btle.scanner.interfaces.iBeacon;
+import com.marozzi.btle.scanner.model.Beacon;
+import com.marozzi.btle.scanner.model.ScanError;
+import com.marozzi.btle.scanner.model.ScanState;
+import com.marozzi.btle.scanner.utils.BluetoothUtils;
+import com.marozzi.btle.scanner.utils.LocationUtils;
+import com.marozzi.btle.scanner.utils.PermissionUtils;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -34,9 +34,8 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * A {@link ScanService} will monitor for the {@link Beacon}s passed via {@link #addBeaconToScan(Beacon)},
- * notify you when you are in range of a monitored {@link Beacon} and persist information in a database so
- * that it continues to work after a service restart.
+ * A {@link ScanService} will monitor for the {@link Beacon}s passed via {@link #addBeaconToScan(Beacon)}.
+ * notify you when you are in range of a monitored {@link Beacon}.
  */
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -46,7 +45,7 @@ public final class DefaultScanService implements ScanService, Provider.ProviderC
     private final BluetoothFactory bluetoothFactory;
     private final Set<Beacon> beaconsFilter;
 
-    private Provider provider;
+    private Provider<iBeacon> provider;
     private Object scanCallback;
     private ScanServiceCallback callback;
     private ScanState scanState = ScanState.STATE_STOPPED;
@@ -73,7 +72,7 @@ public final class DefaultScanService implements ScanService, Provider.ProviderC
         beaconsFilter.remove(beacon);
     }
 
-    @RequiresPermission(Manifest.permission.BLUETOOTH_ADMIN)
+    @RequiresPermission(allOf = {Manifest.permission.BLUETOOTH_ADMIN, Manifest.permission.BLUETOOTH})
     @Override
     @NonNull
     public List<ScanError> canScan() {
@@ -99,7 +98,7 @@ public final class DefaultScanService implements ScanService, Provider.ProviderC
         return errors;
     }
 
-    @RequiresPermission(Manifest.permission.BLUETOOTH_ADMIN)
+    @RequiresPermission(allOf = {Manifest.permission.BLUETOOTH_ADMIN, Manifest.permission.BLUETOOTH})
     @Override
     public void start() {
         stopScan();
@@ -237,7 +236,7 @@ public final class DefaultScanService implements ScanService, Provider.ProviderC
     }
 
     @Override
-    public void setProvider(@NonNull Provider provider) {
+    public void setProvider(@NonNull Provider<iBeacon> provider) {
         this.provider = provider;
         this.provider.setProviderCallback(this);
     }

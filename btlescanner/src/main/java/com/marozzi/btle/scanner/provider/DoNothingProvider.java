@@ -1,11 +1,12 @@
-package com.andreamarozzi.btle.scanner.provider;
+package com.marozzi.btle.scanner.provider;
 
 import android.support.annotation.NonNull;
 
-import com.andreamarozzi.btle.scanner.interfaces.Provider;
-import com.andreamarozzi.btle.scanner.interfaces.iBeacon;
+import com.marozzi.btle.scanner.interfaces.Provider;
+import com.marozzi.btle.scanner.interfaces.iBeacon;
 
 /**
+ * This is a Default Provider, will not check any beacon found but will call {@link com.marozzi.btle.scanner.interfaces.Provider.ProviderCallback#onProviderCompleted(iBeacon)}
  * Created by amarozzi on 15/02/18.
  */
 

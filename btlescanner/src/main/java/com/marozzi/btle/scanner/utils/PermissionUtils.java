@@ -1,4 +1,4 @@
-package com.andreamarozzi.btle.scanner.utils;
+package com.marozzi.btle.scanner.utils;
 
 import android.Manifest;
 import android.annotation.TargetApi;

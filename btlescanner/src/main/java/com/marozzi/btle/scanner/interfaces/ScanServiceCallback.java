@@ -1,8 +1,8 @@
-package com.andreamarozzi.btle.scanner.interfaces;
+package com.marozzi.btle.scanner.interfaces;
 
 import android.support.annotation.NonNull;
 
-import com.andreamarozzi.btle.scanner.model.ScanError;
+import com.marozzi.btle.scanner.model.ScanError;
 
 /**
  * Created by amarozzi on 16/02/18.

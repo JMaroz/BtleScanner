@@ -1,10 +1,10 @@
-package com.andreamarozzi.btle.scanner.interfaces;
+package com.marozzi.btle.scanner.interfaces;
 
 import android.support.annotation.NonNull;
 
 /**
+ * A provider has the job to elaborate the iBeacon and report via ProviderCallback the response
  * Created by amarozzi on 15/02/18.
- * A provider must elaborate the iBeacon and report via ProviderCallback the response
  */
 
 public interface Provider<T extends iBeacon> {
@@ -34,7 +34,7 @@ public interface Provider<T extends iBeacon> {
     interface ProviderCallback<T extends iBeacon> {
 
         /**
-         * When the provider as elaborated the beacon and the work is completed
+         * When the provider has elaborated the beacon and the work is completed
          *
          * @param result
          */

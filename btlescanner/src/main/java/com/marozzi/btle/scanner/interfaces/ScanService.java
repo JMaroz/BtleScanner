@@ -1,10 +1,10 @@
-package com.andreamarozzi.btle.scanner.interfaces;
+package com.marozzi.btle.scanner.interfaces;
 
 import android.support.annotation.NonNull;
 
-import com.andreamarozzi.btle.scanner.model.Beacon;
-import com.andreamarozzi.btle.scanner.model.ScanError;
-import com.andreamarozzi.btle.scanner.model.ScanState;
+import com.marozzi.btle.scanner.model.Beacon;
+import com.marozzi.btle.scanner.model.ScanError;
+import com.marozzi.btle.scanner.model.ScanState;
 
 import java.util.List;
 
@@ -32,6 +32,7 @@ public interface ScanService {
 
     /**
      * Check if the service can permof scan for beacons
+     *
      * @return the this of errors like {@link ScanError#NO_BLUETOOTH_PERMISSION} or empty list if there are no erros
      */
     @NonNull
@@ -65,7 +66,7 @@ public interface ScanService {
      *
      * @param provider
      */
-    void setProvider(@NonNull Provider provider);
+    void setProvider(@NonNull Provider<iBeacon> provider);
 
     @NonNull
     Provider getProvider();

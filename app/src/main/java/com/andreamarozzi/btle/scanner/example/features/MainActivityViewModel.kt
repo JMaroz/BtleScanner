@@ -5,8 +5,8 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.content.Context
 import com.andreamarozzi.btle.scanner.example.features.shared.BtleScannerLiveData
-import com.andreamarozzi.btle.scanner.interfaces.iBeacon
-import com.andreamarozzi.btle.scanner.model.ScanError
+import com.marozzi.btle.scanner.interfaces.iBeacon
+import com.marozzi.btle.scanner.model.ScanError
 
 class MainActivityViewModel : ViewModel() {
 

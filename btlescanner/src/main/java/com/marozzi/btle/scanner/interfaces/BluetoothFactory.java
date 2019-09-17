@@ -1,4 +1,4 @@
-package com.andreamarozzi.btle.scanner.interfaces;
+package com.marozzi.btle.scanner.interfaces;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.le.BluetoothLeScanner;
@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
  */
 
 public interface BluetoothFactory {
+
     /**
      * Attaches the {@link BluetoothAdapter} if it is null.
      *

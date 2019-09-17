@@ -11,7 +11,7 @@ import com.andreamarozzi.btle.scanner.example.R
 import android.view.ViewGroup
 import com.andreamarozzi.btle.scanner.example.features.shared.BaseScanFragment
 import com.andreamarozzi.btle.scanner.example.features.shared.BtDeviceItem
-import com.andreamarozzi.btle.scanner.interfaces.iBeacon
+import com.marozzi.btle.scanner.interfaces.iBeacon
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
 import com.mikepenz.fastadapter.commons.utils.FastAdapterDiffUtil
 import kotlinx.android.synthetic.main.fragment_scan_result.view.*

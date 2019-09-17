@@ -1,4 +1,4 @@
-package com.andreamarozzi.btle.scanner.model;
+package com.marozzi.btle.scanner.model;
 
 /**
  * Created by amarozzi on 20/02/18.
